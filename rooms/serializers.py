@@ -7,7 +7,7 @@ class RoomSerializer(serializers.ModelSerializer):
     fields = '__all__'
 
   def validate_name(self,value):
-    print(value)
+    console.log(value)
     qs = Room.objects.filter(name = value)
     if(self.instance):
       qs = qs.exclude(pk = self.instance.pk)
