@@ -16,12 +16,25 @@ class Show(models.Model):
   price = models.DecimalField(max_digits = 4 ,decimal_places = 2)
   endTime = models.DateTimeField(editable=False)
 
+  
+
+  @property
+  def available_seats(self):
+    return self.tickets.all()
+
 
   def __str__(self):
-    return self.room.name + "" + self.movie.title + "" + self.startTime 
+    return self.startTime.strftime(' %d, %b %Y , %H:%M') + " Room: " + self.room.name + " Movie :" + self.movie.title 
 
+
+
+ 
+ 
 
 
 @receiver(pre_save , sender = Show)
 def getendTime(instance , **kwargs):
   instance.endTime =  instance.startTime + datetime.timedelta(minutes = instance.movie.duration_in_mintues)
+
+
+

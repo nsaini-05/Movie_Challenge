@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rooms',
     'movies',
-    'shows'
+    'shows',
+    'tickets'
 
 ]
 

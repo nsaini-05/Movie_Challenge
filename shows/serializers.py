@@ -21,7 +21,7 @@ class ShowSerializer(serializers.ModelSerializer):
     shows = Show.objects.filter(room = data['room'])    
     for show in shows:
       if(time_in_range(show.startTime , show.endTime , startTime, endTime)):
-          raise serializers.ValidationError("{}  has already been used".format(startTime))   
+          raise serializers.ValidationError("Room already in use during during requested time")   
     
     return data 
 
