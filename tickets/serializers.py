@@ -19,6 +19,7 @@ class TicketSerializer(serializers.ModelSerializer):
    if(data['seats'] > available_seats):
      raise serializers.ValidationError("No More seats for this show. Seats available: {}".format(available_seats))   
 
- 
+  
+  
   #  print(data['show'].available_seats)
    return data
