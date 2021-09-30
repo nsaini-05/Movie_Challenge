@@ -163,5 +163,4 @@ Vary: Accept
 }
 ```
 
-- As validation no two rooms can have same name
 
